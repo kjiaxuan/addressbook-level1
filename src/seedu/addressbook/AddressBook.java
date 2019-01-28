@@ -211,9 +211,8 @@ public class AddressBook {
         processProgramArgs(args);
         loadDataFromStorage();
         while (true) {
-            String userCommand = getUserInput();
-            echoUserCommand(userCommand);
-            showResultToUser(executeCommand(userCommand));
+            echoUserCommand(getUserInput());
+            showResultToUser(executeCommand(getUserInput()));
         }
     }
 
