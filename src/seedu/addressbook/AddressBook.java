@@ -228,9 +228,6 @@ public class AddressBook {
         showToUser(DIVIDER, DIVIDER, VERSION, MESSAGE_WELCOME, DIVIDER);
     }
 
-    private static void showResultToUser(String result) {
-        showToUser(result, DIVIDER);
-    }
 
     /*
      * NOTE : =============================================================
@@ -239,12 +236,15 @@ public class AddressBook {
      * In the method below, '@param userInput' comment has been omitted.
      * ====================================================================
      */
-
     /**
      * Echoes the user input back to the user.
      */
     private static void echoUserCommand(String userCommand) {
         showToUser("[Command entered:" + userCommand + "]");
+    }
+
+    private static void showResultToUser(String result) {
+        showToUser(result, DIVIDER);
     }
 
     /**
