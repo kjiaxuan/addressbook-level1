@@ -630,8 +630,7 @@ public class AddressBook {
      *
      */
     private static void showToUser(ArrayList<String[]> persons) {
-        String listAsString = getDisplayString(persons);
-        showToUser(listAsString);
+        showToUser(getDisplayString(persons));
         updateLatestViewedPersonListing(persons);
     }
 
@@ -970,11 +969,15 @@ public class AddressBook {
      * @return name argument
      */
     private static String extractNameFromPersonString(String encoded) {
-        final int indexOfPhonePrefix = encoded.indexOf(PERSON_DATA_PREFIX_PHONE);
+        final int indexOfPhonePrefix = getIndexOfPhonePrefix(encoded);
         final int indexOfEmailPrefix = encoded.indexOf(PERSON_DATA_PREFIX_EMAIL);
         // name is leading substring up to first data prefix symbol
         int indexOfFirstPrefix = Math.min(indexOfEmailPrefix, indexOfPhonePrefix);
         return encoded.substring(0, indexOfFirstPrefix).trim();
+    }
+
+    private static int getIndexOfPhonePrefix(String encoded) {
+        return encoded.indexOf(PERSON_DATA_PREFIX_PHONE);
     }
 
     /**
