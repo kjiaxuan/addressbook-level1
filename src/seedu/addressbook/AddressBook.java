@@ -213,8 +213,7 @@ public class AddressBook {
         while (true) {
             String userCommand = getUserInput();
             echoUserCommand(userCommand);
-            String feedback = executeCommand(userCommand);
-            showResultToUser(feedback);
+            showResultToUser(executeCommand(userCommand));
         }
     }
 
